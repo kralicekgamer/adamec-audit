@@ -32,10 +32,10 @@ main {
   padding: 8rem 0;
 }
 
-.section {
+section {
   margin-bottom: 8rem;
 }
-.section:last-child {
+section:last-child {
   margin-bottom: 0;
 }
 
@@ -222,7 +222,7 @@ footer p {
   main {
     padding: 6rem 0;
   }
-  .section {
+  section {
     margin-bottom: 6rem;
   }
   .company-info {
@@ -254,7 +254,7 @@ footer p {
   main {
     padding: 4rem 0;
   }
-  .section {
+  section {
     margin-bottom: 4rem;
   }
   .employees li {
@@ -272,6 +272,6 @@ footer p {
     transform: translateY(0);
   }
 }
-.section {
+section {
   animation: fadeIn 0.6s ease-out;
 }/*# sourceMappingURL=style.css.map */
