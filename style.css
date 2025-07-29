@@ -28,6 +28,29 @@ body {
   padding: 0 2rem;
 }
 
+main {
+  padding: 8rem 0;
+}
+
+.section {
+  margin-bottom: 8rem;
+}
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: 4rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* ======================================================== */
+/* HEADER */
+/* ======================================================== */
 header {
   padding: 8rem 0 6rem;
   text-align: center;
@@ -55,26 +78,9 @@ header .experience {
   letter-spacing: 0.1em;
 }
 
-main {
-  padding: 8rem 0;
-}
-
-.section {
-  margin-bottom: 8rem;
-}
-.section:last-child {
-  margin-bottom: 0;
-}
-
-.section-title {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--text-primary);
-  margin-bottom: 4rem;
-  text-align: center;
-  letter-spacing: -0.01em;
-}
-
+/* ======================================================== */
+/* COMPANY INFO */
+/* ======================================================== */
 .company-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -105,55 +111,53 @@ main {
   margin-bottom: 0;
 }
 
-.offices-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 6rem;
-  margin-top: 4rem;
-}
-
-.office {
+/* ======================================================== */
+/* EMPLOYEES */
+/* ======================================================== */
+.employees {
+  max-width: 500px;
+  margin: 0 auto;
   text-align: center;
 }
-.office-title {
+.employees ul {
+  list-style: none;
+  display: grid;
+  gap: 2rem;
+}
+.employees li {
   font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 3rem;
-  position: relative;
-}
-.office-title::after {
-  content: "";
-  position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.employee {
-  margin-bottom: 3rem;
-}
-.employee:last-child {
-  margin-bottom: 0;
-}
-.employee-name {
-  font-size: 1rem;
   font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: all 0.3s ease;
 }
-.employee-role {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 300;
+.employees li:last-child {
+  border-bottom: none;
 }
-+ .employee-role {
-  margin-top: 0.25rem;
+.employees li:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+.employees li::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  transition: transform 0.3s ease;
+}
+.employees li:hover::before {
+  transform: translateX(-50%) scaleX(1);
 }
 
+/* ======================================================== */
+/* CONTACT */
+/* ======================================================== */
 .contact-info {
   text-align: center;
   max-width: 400px;
@@ -189,6 +193,9 @@ main {
   color: var(--accent);
 }
 
+/* ======================================================== */
+/* FOOTER */
+/* ======================================================== */
 footer {
   border-top: 1px solid var(--border);
   padding: 4rem 0;
@@ -202,6 +209,9 @@ footer p {
   margin: 0 auto;
 }
 
+/* ======================================================== */
+/* RESPONSIVE & ANIMATIONS */
+/* ======================================================== */
 @media (max-width: 768px) {
   .container {
     padding: 0 1.5rem;
@@ -220,12 +230,15 @@ footer p {
     gap: 4rem;
     max-width: 400px;
   }
-  .offices-grid {
-    gap: 4rem;
-    margin-top: 3rem;
-  }
   .section-title {
     margin-bottom: 3rem;
+  }
+  .employees ul {
+    gap: 1.5rem;
+  }
+  .employees li {
+    padding: 1.25rem 0;
+    font-size: 1rem;
   }
 }
 @media (max-width: 480px) {
@@ -244,8 +257,9 @@ footer p {
   .section {
     margin-bottom: 4rem;
   }
-  .offices-grid {
-    gap: 3rem;
+  .employees li {
+    padding: 1rem 0;
+    font-size: 0.9375rem;
   }
 }
 @keyframes fadeIn {

@@ -36,6 +36,33 @@ body {
     padding: 0 2rem;
 }
 
+
+main {
+    padding: 8rem 0;
+}
+
+.section {
+    margin-bottom: 8rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+
+/* ======================================================== */
+/* HEADER */
+/* ======================================================== */
+
 header {
     padding: 8rem 0 6rem;
     text-align: center;
@@ -66,25 +93,9 @@ header {
     }
 }
 
-main {
-    padding: 8rem 0;
-}
-
-.section {
-    margin-bottom: 8rem;
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.section-title {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--text-primary);
-    margin-bottom: 4rem;
-    text-align: center;
-    letter-spacing: -0.01em;
-}
+/* ======================================================== */
+/* COMPANY INFO */
+/* ======================================================== */
 
 .company-info {
     display: grid;
@@ -121,60 +132,60 @@ main {
     }
 }
 
-.offices-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 6rem;
-    margin-top: 4rem;
-}
+/* ======================================================== */
+/* EMPLOYEES */
+/* ======================================================== */
 
-.office {
+.employees {
+    max-width: 500px;
+    margin: 0 auto;
     text-align: center;
 
-    &-title {
+    ul {
+        list-style: none;
+        display: grid;
+        gap: 2rem;
+    }
+
+    li {
         font-size: 1.125rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 3rem;
-        position: relative;
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 1px;
-            background: var(--accent);
-        }
-    }
-}
-
-.employee {
-    margin-bottom: 3rem;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-
-    &-name {
-        font-size: 1rem;
         font-weight: 400;
         color: var(--text-primary);
-        margin-bottom: 0.5rem;
-    }
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        transition: all 0.3s ease;
 
-    &-role {
-        font-size: 0.875rem;
-        color: var(--text-secondary);
-        font-weight: 300;
+        &:last-child {
+            border-bottom: none;
+        }
 
-        +& {
-            margin-top: 0.25rem;
+        &:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        &:hover::before {
+            transform: translateX(-50%) scaleX(1);
         }
     }
 }
+
+/* ======================================================== */
+/* CONTACT */
+/* ======================================================== */
 
 .contact-info {
     text-align: center;
@@ -214,6 +225,10 @@ main {
     }
 }
 
+/* ======================================================== */
+/* FOOTER */
+/* ======================================================== */
+
 footer {
     border-top: 1px solid var(--border);
     padding: 4rem 0;
@@ -227,6 +242,10 @@ footer {
         margin: 0 auto;
     }
 }
+
+/* ======================================================== */
+/* RESPONSIVE & ANIMATIONS */
+/* ======================================================== */
 
 @media (max-width: 768px) {
     .container {
@@ -251,13 +270,17 @@ footer {
         max-width: 400px;
     }
 
-    .offices-grid {
-        gap: 4rem;
-        margin-top: 3rem;
-    }
-
     .section-title {
         margin-bottom: 3rem;
+    }
+
+    .employees ul {
+        gap: 1.5rem;
+    }
+
+    .employees li {
+        padding: 1.25rem 0;
+        font-size: 1rem;
     }
 }
 
@@ -268,10 +291,10 @@ footer {
 
     header {
         padding: 4rem 0 3rem;
+    }
 
-        h1 {
-            margin-bottom: 1.5rem;
-        }
+    header h1 {
+        margin-bottom: 1.5rem;
     }
 
     main {
@@ -282,21 +305,25 @@ footer {
         margin-bottom: 4rem;
     }
 
-    .offices-grid {
-        gap: 3rem;
+    .employees li {
+        padding: 1rem 0;
+        font-size: 0.9375rem;
     }
 }
+
 
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 
 .section {
     animation: fadeIn 0.6s ease-out;
