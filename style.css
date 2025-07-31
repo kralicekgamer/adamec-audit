@@ -17,8 +17,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   line-height: 1.7;
-  color: var(--text-primary);
-  background: var(--white);
+  color: #0f172a;
+  background: #ffffff;
   font-weight: 400;
 }
 
@@ -34,6 +34,7 @@ main {
 
 section {
   margin-bottom: 8rem;
+  animation: fadeIn 0.6s ease-out;
 }
 section:last-child {
   margin-bottom: 0;
@@ -42,45 +43,58 @@ section:last-child {
 .section-title {
   font-size: 1.5rem;
   font-weight: 300;
-  color: var(--text-primary);
+  color: #0f172a;
   margin-bottom: 4rem;
   text-align: center;
   letter-spacing: -0.01em;
 }
 
-/* ======================================================== */
-/* HEADER */
-/* ======================================================== */
 header {
   padding: 8rem 0 6rem;
   text-align: center;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #e2e8f0;
 }
-header h1 {
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.header-text h1 {
   font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 200;
   letter-spacing: -0.02em;
   margin-bottom: 2rem;
-  color: var(--text-primary);
+  color: #0f172a;
 }
-header .subtitle {
+.header-text .subtitle {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  color: #64748b;
   font-weight: 300;
   margin-bottom: 1rem;
   letter-spacing: 0.05em;
 }
-header .experience {
+.header-text .experience {
   font-size: 0.875rem;
-  color: var(--text-light);
+  color: #94a3b8;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* ======================================================== */
-/* COMPANY INFO */
-/* ======================================================== */
 .company-info {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -93,7 +107,7 @@ header .experience {
 .info-block h3 {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 2rem;
@@ -103,7 +117,7 @@ header .experience {
 }
 .info-block li {
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: #0f172a;
   font-size: 0.9375rem;
   line-height: 1.6;
 }
@@ -111,9 +125,6 @@ header .experience {
   margin-bottom: 0;
 }
 
-/* ======================================================== */
-/* EMPLOYEES */
-/* ======================================================== */
 .employees {
   max-width: 500px;
   margin: 0 auto;
@@ -127,9 +138,9 @@ header .experience {
 .employees li {
   font-size: 1.125rem;
   font-weight: 400;
-  color: var(--text-primary);
+  color: #0f172a;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #e2e8f0;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -137,7 +148,7 @@ header .experience {
   border-bottom: none;
 }
 .employees li:hover {
-  color: var(--accent);
+  color: #2563eb;
   transform: translateY(-2px);
 }
 .employees li::before {
@@ -148,16 +159,13 @@ header .experience {
   transform: translateX(-50%) scaleX(0);
   width: 40px;
   height: 2px;
-  background: var(--accent);
+  background: #2563eb;
   transition: transform 0.3s ease;
 }
 .employees li:hover::before {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* ======================================================== */
-/* CONTACT */
-/* ======================================================== */
 .contact-info {
   text-align: center;
   max-width: 400px;
@@ -174,7 +182,7 @@ header .experience {
 .contact-label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.5rem;
@@ -182,7 +190,7 @@ header .experience {
 
 .contact-value {
   font-size: 1rem;
-  color: var(--text-primary);
+  color: #0f172a;
 }
 .contact-value a {
   color: inherit;
@@ -190,34 +198,34 @@ header .experience {
   transition: color 0.2s ease;
 }
 .contact-value a:hover {
-  color: var(--accent);
+  color: #2563eb;
 }
 
-/* ======================================================== */
-/* FOOTER */
-/* ======================================================== */
 footer {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid #e2e8f0;
   padding: 4rem 0;
   text-align: center;
 }
 footer p {
   font-size: 0.8125rem;
-  color: var(--text-light);
+  color: #94a3b8;
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* ======================================================== */
-/* RESPONSIVE & ANIMATIONS */
-/* ======================================================== */
 @media (max-width: 768px) {
   .container {
     padding: 0 1.5rem;
   }
   header {
     padding: 6rem 0 4rem;
+  }
+  .header-content {
+    gap: 2rem;
+  }
+  .logo {
+    max-width: 150px;
   }
   main {
     padding: 6rem 0;
@@ -248,7 +256,13 @@ footer p {
   header {
     padding: 4rem 0 3rem;
   }
-  header h1 {
+  .header-content {
+    gap: 1.5rem;
+  }
+  .logo {
+    max-width: 120px;
+  }
+  .header-text h1 {
     margin-bottom: 1.5rem;
   }
   main {
@@ -271,7 +285,4 @@ footer p {
     opacity: 1;
     transform: translateY(0);
   }
-}
-section {
-  animation: fadeIn 0.6s ease-out;
 }/*# sourceMappingURL=style.css.map */
